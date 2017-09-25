@@ -6,11 +6,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+  /**
+   * Получить все задачи пользователя.
+   */
+  public function tasks()
+  {
+    return $this->hasMany(Task::class);
+  }
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
